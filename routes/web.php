@@ -27,3 +27,6 @@ Route::resource('categoria', CategoriesController::class);
 
 
 Route::get('/borrar',[CategoriesController::class, 'select']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

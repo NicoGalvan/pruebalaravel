@@ -37,5 +37,8 @@
     </tr>
     @endforeach
 </table>
-
+<br>
+<div id="app">
+    <example-component></example-component>
+</div>
 
