@@ -1,6 +1,7 @@
-@extends('layout')
+@extends('layouts/app')
 
 @section('content')
+<!--
     <h1> Hola Mundo</h1>
     <form action="{{ route('categoria.store') }}" method="POST">
     @csrf
@@ -9,8 +10,14 @@
 <button type="submit">Enviar</button>
 
     </form>
+-->
 
-    <h1>USUARIOS</h1>
+
+<div id="app">
+<form-component></form-component>
+<list-component></list-component>
+<!--    
+<h1>USUARIOS</h1>
 
 <br>
 <table> 
@@ -38,7 +45,8 @@
     @endforeach
 </table>
 <br>
-<div id="app">
-    <example-component></example-component>
-</div>
+--> 
+    
+    </div>
 
+@endsection

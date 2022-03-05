@@ -13,6 +13,10 @@ class CategoriesController extends Controller
         $categories = Category::all();
         return View('Category',['categories' =>  $categories]);
     }
+    public function listado()
+    {
+        return Category::get();
+    }
 
     public function store(Request $request)
     {
@@ -40,13 +44,16 @@ class CategoriesController extends Controller
         $categoriesid = Category::findOrFail($id);
         $categoriesid ->delete();
 
-        return redirect('/Categories')->with('success', 'User Data is successfully deleted');
+       // return redirect('/Categories')->with('success', 'User Data is successfully deleted'); full laravel
+
     }
 
     public function edit($id)
     {
         $categoriesid = Category::findOrFail($id);
-        return View('edit',compact('categoriesid'));
+        //return View('edit',compact('categoriesid')); para solo laravel sin vue
+        return $categoriesid;
+
     }
     //
     public function update(Request $request, $id)
@@ -56,6 +63,9 @@ class CategoriesController extends Controller
             'Edad' => 'required',
         ]);
         Category::whereId($id)->update($validatedData);
-        return redirect('/Categories')->with('success', 'User Data is successfully updated');
+       // return redirect('/Categories')->with('success', 'User Data is successfully updated'); para full laravel
+       //return redirect()->route('categoria.index')                    para full laravel
+         //               ->with('success','Post created successfully.');           para full laravel
+         
     }
 }

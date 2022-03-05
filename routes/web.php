@@ -19,11 +19,21 @@ Route::get('/', function () {
 });
 
 
-//Route::get('/Categories','CategoriesController@index');
+
 
 Route::get('/Categories',[CategoriesController::class, 'index']);
 
+//Route::patch('categoriar/{id}', [CategoriesController::class, 'update'])->name('patch');
+
 Route::resource('categoria', CategoriesController::class);
+Route::patch('categoria', [App\Http\Controllers\HomeController::class, 'update']);
+
+//Route::patch('categoriaPatch', [CategoriesController::class, 'update']);
+
+
+
+Route::get('/list',[CategoriesController::class, 'listado']);
+
 
 
 Route::get('/borrar',[CategoriesController::class, 'select']);
